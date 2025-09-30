@@ -150,7 +150,7 @@ double computeTotalComponent(double x, double y)
  * OUTPUT
  *     r : radians from 0 to 2pi
  **************************************************/
- // your function goes here
+ // your function goes here - Thomas Gruber
 double radiansFromDegrees(double d)
 {
     double r = (d * 2 * 3.14159265358979323846) / 360;
