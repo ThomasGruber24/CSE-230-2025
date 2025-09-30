@@ -82,7 +82,16 @@ using namespace std;
  * OUTPUT
  *     y : the vertical component of the total
  ***********************************************/
- // your function goes here
+ // your function goes here - Thomas Gruber
+class VerticalComponent
+{
+    public:
+        double computeVerticalComponent(double a, double total)
+        {
+			double y = cos(a) * total;
+            return y;
+		}
+};
 
 /***********************************************
  * COMPUTE HORIZONTAL COMPONENT
@@ -102,7 +111,16 @@ using namespace std;
  * OUTPUT
  *     x : the vertical component of the total
  ***********************************************/
- // your function goes here
+ // your function goes here - Thomas Gruber
+class HorizontalComponent
+{
+    public:
+        double computeHorizontalComponent(double a, double total)
+        {
+            double x = sin(a) * total;
+			return x;
+        }
+};
 
 /************************************************
  * COMPUTE TOTAL COMPONENT
@@ -123,7 +141,16 @@ using namespace std;
  * OUTPUT
  *    total : total component
  ***********************************************/
- // your function goes here
+ // your function goes here -Thomas Gruber
+class TotalComponent
+{
+    public:
+        double computeTotalComponent(double x, double y)
+        {
+            double total = sqrt((x * x) + (y * y));
+            return total;
+        }
+};
 
 
 /*************************************************
