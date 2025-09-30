@@ -100,7 +100,12 @@ double computeVelocity(double v, double a, double t)
  * OUTPUT
  *     y : the vertical component of the total
  ***********************************************/
- // your function goes here
+ // your function goes here - Thomas Gruber
+double computeVerticalComponent(double a, double total)
+    {
+        double y = cos(a) * total;
+        return y;
+    };
 
 /***********************************************
  * COMPUTE HORIZONTAL COMPONENT
@@ -120,7 +125,12 @@ double computeVelocity(double v, double a, double t)
  * OUTPUT
  *     x : the vertical component of the total
  ***********************************************/
- // your function goes here
+ // your function goes here - Thomas Gruber
+double computeHorizontalComponent(double a, double total)
+{
+    double x = sin(a) * total;
+    return x;
+};
 
 /************************************************
  * COMPUTE TOTAL COMPONENT
@@ -141,7 +151,12 @@ double computeVelocity(double v, double a, double t)
  * OUTPUT
  *    total : total component
  ***********************************************/
- // your function goes here
+ // your function goes here -Thomas Gruber
+double computeTotalComponent(double x, double y)
+{
+    double total = sqrt((x * x) + (y * y));
+    return total;
+};
 
 
 /*************************************************
@@ -153,7 +168,12 @@ double computeVelocity(double v, double a, double t)
  * OUTPUT
  *     r : radians from 0 to 2pi
  **************************************************/
- // your function goes here
+ // your function goes here - Thomas Gruber
+double radiansFromDegrees(double d)
+{
+    double r = (d * 2 * 3.14159265358979323846) / 360;
+	return r;
+}
 
 /**************************************************
  * PROMPT
