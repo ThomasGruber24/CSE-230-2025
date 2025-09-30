@@ -8,7 +8,7 @@
  * 4. What was the hardest part? Be as specific as possible.
  *      -a paragraph or two about how the assignment went for you-
  * 5. How long did it take for you to complete the assignment?
- *      efc.13–.. -total time in hours: reading the assignment, submitting, etc.
+ *      -total time in hours: reading the assignment, submitting, etc.
  **************************************************************/
 
 #include <iostream>  // for CIN and COUT
@@ -32,7 +32,13 @@ using namespace std;
  * OUTPUT
  *     s : new position, in meters
  **************************************************/
- // your function goes here
+double computeDistance(double s, double v, double a, double t)
+{
+   // Update to new position
+   s = s + v * t + 0.5 * a * t * t;
+   // Return position
+   return s;
+}
 
 /**************************************************
  * COMPUTE ACCELERATION
@@ -45,7 +51,13 @@ using namespace std;
  * OUTPUT
  *     a : acceleration, in meters/second^2
  ***************************************************/
- // your function goes here
+double computeAcceleration(double f, double m)
+{
+   // Calculate acceleration
+   double a = f / m;
+   // Return acceleration
+   return a;
+}
 
 /***********************************************
  * COMPUTE VELOCITY
@@ -61,7 +73,13 @@ using namespace std;
  * OUTPUT
  *     v : new velocity, in meters/second
  ***********************************************/
- // your function goes here
+double computeVelocity(double v, double a, double t)
+{
+   // Update velocity
+   v = v + a * t;
+   // Return updated velocity
+   return v;
+}
 
 
 /***********************************************
