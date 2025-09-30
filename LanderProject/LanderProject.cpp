@@ -151,6 +151,11 @@ double computeTotalComponent(double x, double y)
  *     r : radians from 0 to 2pi
  **************************************************/
  // your function goes here
+double radiansFromDegrees(double d)
+{
+    double r = (d * 2 * 3.14159265358979323846) / 360;
+	return r;
+}
 
 /**************************************************
  * PROMPT
