@@ -2,7 +2,7 @@
  * Source File:
  *    ANGLE
  * Author:
- *    Br. Helfrich
+ *    Br. Helfrich, Thomas, David
  * Summary:
  *    Everything we need to know about a direction
  ************************************************************************/
@@ -17,8 +17,25 @@ using namespace std;
   ************************************/
 double Angle::normalize(double radians) const
 {
-   return -99.9;
+   const double twoPi = 2.0 * M_PI;
+   
+   while (radians < 0)
+      radians += twoPi;
+
+   while (radians >= twoPi)
+      radians -= twopi;
+
+   return radians;
 }
 
+double Angle::getDegrees() const
+{
+   return radians * (180.0 / M_PI);
+}
+
+double Angle::getRadians() const
+{
+   return radians;
+}
 
 

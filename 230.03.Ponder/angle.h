@@ -2,7 +2,7 @@
  * Header File:
  *    ANGLE
  * Author:
- *    Br. Helfrich
+ *    Br. Helfrich Thomas, David
  * Summary:
  *    Everything we need to know about a direction
  ************************************************************************/
