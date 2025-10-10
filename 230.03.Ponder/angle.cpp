@@ -23,7 +23,7 @@ double Angle::normalize(double radians) const
       radians += twoPi;
 
    while (radians >= twoPi)
-      radians -= twopi;
+      radians -= twoPi;
 
    return radians;
 }
