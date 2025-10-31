@@ -13,7 +13,7 @@ double degreesToRadians(double degree)
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Hello Dragon Snails!\n";
     std::cout << degreesToRadians(180) << std::endl;
 }
 
