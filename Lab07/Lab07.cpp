@@ -2,10 +2,19 @@
 //
 
 #include <iostream>
+#include <cmath>
+#define PI 3.141592653589
+
+double degreesToRadians(double degree)
+{
+    double radians = (degree * PI) / 180;
+    return radians;
+}
 
 int main()
 {
     std::cout << "Hello World!\n";
+    std::cout << degreesToRadians(180) << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
