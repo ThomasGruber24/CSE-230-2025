@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cmath>
-#define PI 3.141592653589
+#define PI 3.14159265358979323846264338327950288
 
 double degreesToRadians(double degree)
 {
