@@ -67,14 +67,24 @@ void inertia(double initialSpeed, double initialAngle)
         << " Altitude: " << altitude << "m" << endl;
 }
 
-// Acceleration function
-// Now introduce gravity at a constant -9.8m/s2. 
-// This will require you to update the velocity based on the acceleration due to gravity. 
-// First, update the position using the distance formula. Next, after the position is updated, update the velocity. 
-// Use the distance formula and the kinematics equation to compute the new position (with (x,y) instead of s) and velocity (with (dx, dy) instead of v). 
-// Notice how our horizontal distance is unaffected, but our altitude has decreased significantly.
+// Acceleration function, passed
 void acceleration(double constantGravity)
 {
+    double distance = 0.0;
+    double altitude = 0.0;
+    double initialSpeed = 827.0;
+    double initialAngle = 75.0;
+    double angleInRadians = degreesToRadians(initialAngle);
+    double dx = horizontalComponent(initialSpeed, angleInRadians);
+    double dy = verticalComponent(initialSpeed, angleInRadians);
+    for (int time = 1; time <= 20; ++time)
+    {
+        distance = distanceFormula(distance, dx, 1.0, 0.0);
+        altitude = distanceFormula(altitude, dy, 1.0, constantGravity);
+        dy = kinematicsEquation(dy, constantGravity, 1.0);
+    }
+    cout << "Distance with gravity: " << distance << "m"
+		<< " Altitude with gravity: " << altitude << "m" << endl;
 }
 
 // Main fuction
