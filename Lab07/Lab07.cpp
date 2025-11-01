@@ -7,44 +7,38 @@
 
 using namespace std;
 
-// Equations here:
+// ---------- Equations ----------
 double degreesToRadians(double degree)
 {
-    double radians = (degree * PI) / 180;
-    return radians;
+    return (degree * PI) / 180.0;
 }
 
 double radiansToDegrees(double radians)
 {
-    double degree = (radians * 180) / PI;
-    return degree;
+    return (radians * 180.0) / PI;
 }
 
 double verticalComponent(double speed, double angle)
 {
-    double vertical = speed * cos(angle);
-	return vertical;
+    return speed * cos(angle);
 }
 
 double horizontalComponent(double speed, double angle)
 {
-    double horizontal = speed * sin(angle);
-    return horizontal;
+    return speed * sin(angle);
 }
 
 double distanceFormula(double initialDistance, double velocity, double time, double equationAcceleration)
 {
-    double distance = initialDistance + (velocity * time) + (0.5 * equationAcceleration * (time * time));
-	return distance;
+    return initialDistance + (velocity * time) + (0.5 * equationAcceleration * (time * time));
 }
 
 double kinematicsEquation(double initialVelocity, double equationAcceleration, double time)
 {
-    double velocity = initialVelocity + (equationAcceleration * time);
-    return velocity;
+    return initialVelocity + (equationAcceleration * time);
 }
 
-// Assignment functions:
+// ---------- Assignment ----------:
 
 // Inertia function, passed
 void inertia(double initialSpeed, double initialAngle)
@@ -56,16 +50,15 @@ void inertia(double initialSpeed, double initialAngle)
     double dx = horizontalComponent(initialSpeed, angleInRadians); // s * sin(a)
     double dy = verticalComponent(initialSpeed, angleInRadians);   // s * cos(a)
 
-    // run for 20 seconds (exactly 20 iterations)
     for (int time = 1; time <= 20; ++time)
     {
         distance += dx;
         altitude += dy;
     }
 
-    cout << "Distance: " << distance << "m"
-        << " Altitude: " << altitude << "m" << endl;
+    cout << "Inertia -> Distance: " << distance << "m   Altitude: " << altitude << "m" << endl;
 }
+
 
 // Acceleration function, passed
 void acceleration(double constantGravity)
@@ -74,17 +67,44 @@ void acceleration(double constantGravity)
     double altitude = 0.0;
     double initialSpeed = 827.0;
     double initialAngle = 75.0;
+
     double angleInRadians = degreesToRadians(initialAngle);
     double dx = horizontalComponent(initialSpeed, angleInRadians);
     double dy = verticalComponent(initialSpeed, angleInRadians);
+
     for (int time = 1; time <= 20; ++time)
     {
         distance = distanceFormula(distance, dx, 1.0, 0.0);
         altitude = distanceFormula(altitude, dy, 1.0, constantGravity);
         dy = kinematicsEquation(dy, constantGravity, 1.0);
     }
-    cout << "Distance with gravity: " << distance << "m"
-		<< " Altitude with gravity: " << altitude << "m" << endl;
+
+    cout << "Acceleration -> Distance: " << distance << "m   Altitude: " << altitude << "m" << endl;
+}
+
+//Ground Impact, passed (round up the decimal, it has 2 digits instead of the 1 that is on the assignment)
+void groundImpact(double timeInterval, double gravity, double initialSpeed, double initialAngle)
+{
+	double impactDistance = 0.0;
+	double impactAltitude = 0.0;
+	double hangTime = 0.0;
+
+	double angleInRadians = degreesToRadians(initialAngle);
+
+	double dx = horizontalComponent(initialSpeed, angleInRadians);
+	double dy = verticalComponent(initialSpeed, angleInRadians);
+
+    while (impactAltitude >= 0.0)
+    {
+		impactDistance = distanceFormula(impactDistance, dx, timeInterval, 0.0);
+		impactAltitude = distanceFormula(impactAltitude, dy, timeInterval, gravity);
+		dy = kinematicsEquation(dy, gravity, timeInterval);
+		hangTime += timeInterval;
+    }
+
+    cout << "distance: " << impactDistance << "m"
+        << " altitude: " << impactAltitude << "m"
+		<< " hang time: " << hangTime << "s" << endl;
 }
 
 // Main fuction
@@ -93,4 +113,7 @@ int main()
     cout << "Hello Dragon Snails!\n";
 	inertia(827.0, 75.0);
 	acceleration(-9.8);
+	groundImpact(0.01, -9.8, 827.0, 75.0);
+
+    return 0;
 }
